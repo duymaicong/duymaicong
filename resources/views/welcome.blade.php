@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
         integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
   <!-- <style>
     body {
       font-family: 'Nunito';
@@ -97,11 +99,14 @@
   <livewire:styles />
     <livewire:scripts />
   @livewireStyles
+ 
 </head>
 
 <body class="antialiased">
 <!-- :intinialComments="$comments" -->
-  <livewire:comment  />
+        <!-- Fixed navbar -->
+      
+        <livewire:search />
 
   @livewireScripts
 </body>

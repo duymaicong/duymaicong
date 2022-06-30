@@ -1,9 +1,13 @@
 <?php
 
 use App\Http\Livewire\Comment as LivewireComment;
+use App\Http\Livewire\Search;
+use App\Http\Livewire\SearchCustomer;
 use Illuminate\Support\Facades\Route;
 use App\Models\Comment;
-
+use App\Models\Customer;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,8 +40,43 @@ use App\Models\Comment;
 // The route we have created to show all blog posts.
 // Route::get('/blog', [\App\Http\Controllers\BlogPostController::class, 'index']);
 
+// Route::get('customer/{id?}', function() {
+//     $customer = Customer::find($id);
+//     return $customer->name . '@' . $customer->phone . '-' . $customer->address;
+//  });
+Route::get('/wellcome', function () {
+    // $comments=Comment::all();
+    // $comments=Comment::latest()->get();
+    //,compact('comments') compact viet trong view
+    return view('welcome');
+})->name('wellcome');
 Route::get('/', LivewireComment::class)->name('home');
 Route::get('/login', \App\Http\Livewire\Login::class)->name('login');
 Route::get('/register', \App\Http\Livewire\Register::class)->name('register');
 Route::get('/rsa', \App\Http\Livewire\Rsakey::class)->name('rsa');
+Route::get('/products', \App\Http\Livewire\Product::class)->name('products');
+// Route::get('find', [SearchController::class,'index']);
 // Route::view('/wellcome', '\livewire\counter');
+Route::get('/search',SearchCustomer::class);
+Route::get('/searchCustomer',Search::class);
+Route::get('customer/{id}', function(Request $request) {
+    $id=$request->id;
+    $customer = Customer::findOrFail($id);
+    $data = 'Name: ' . $customer->name 
+        . '<br/>Phone: ' . $customer->phone;
+    $data = $customer;
+        
+    return $data;
+ })->name('customer');
+
+ Route::get('searchCustomer/{name}',function(Request $request){
+    $name=$request->name;
+    $customer =DB::select('select * from customers where name=?', [$name]);
+    return $customer;
+ });
+
+Route::get('/search/name',function(Request $request){
+    $customer = Customer::where('name', 'like', '%' . $request->value . '%')->get();
+
+    return $customer; 
+ });

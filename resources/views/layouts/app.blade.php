@@ -16,7 +16,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
         integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
-  
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+   -->
   <livewire:styles />
   <livewire:scripts />
   
@@ -24,16 +28,19 @@
 </head>
 
 <body class="antialiased container d-block m-auto" >
+
 <!-- :intinialComments="$comments" -->
-<div class="d-flex justify-content-between ">
-        <div> <a class="d-d-inline " href="/">Home</a><a class="d-inline mx-5 " href="/rsa">RSA</a></div>
+<div class="d-flex justify-content-between bg-primary text-white py-2">
+        <div> <a class="d-d-inline text-white mx-3 text-decoration-none" href="/">Home</a><a class="text-decoration-none d-inline mx-3 text-white" href="/rsa">RSA</a><a class="text-decoration-none d-inline mx-3 text-white" href="/products">Products</a>
+        <a class="text-decoration-none mx-3 text-white" href="/searchCustomer">Search typeahead </a><a class="text-decoration-none mx-3 text-white" href="/search">SearchLivewire</a></div>
+        
         @auth
         <livewire:logout />
         @endauth
         @guest
         <div class="d-flex ">
-            <a class="mx-3" href="/login">Login</a>
-            <a class="mx-3" href="/register">Register</a>
+            <a class="mx-3 text-white text-decoration-none" href="/login">Login</a>
+            <a class="mx-3 text-white text-decoration-none" href="/register">Register</a>
         </div>
         @endguest
 

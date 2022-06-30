@@ -19,25 +19,25 @@ class Comment extends Component
 {
     use WithPagination;
 
-    protected $paginationTheme = 'bootstrap';
+    // protected $paginationTheme = 'bootstrap';
 
 
     public $check;
     public function addComment()
     {
-        $this->validate(['newComment' => 'required|max:250', 'image' => 'image|mimes:jpg,png']);
+        $this->validate(['newComment' => 'required|max:250']);
         if ($this->newComment == '') {
             return;
         }
     
         
-        // $image = $this->storeImage();
+        $image = $this->storeImage();
 
-        // $createdComment = Comments::create([
-        //     'body' => $this->newComment, 'user_id' => 1,
-        //     'image' => $image
+        $createdComment = Comments::create([
+            'body' => $this->newComment, 'user_id' => 1,
+            'image' => $image
 
-        // ]);
+        ]);
         // $this->check=$createdComment['id'];
         //  array_unshift($this->comments,['body' => $this->newComment,'create_at' => Carbon::now()->diffForHumans(),'creator' => 'sark']);
         // $this->comments->push($createdComment);
