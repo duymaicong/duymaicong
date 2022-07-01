@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Comment as LivewireComment;
+use App\Http\Livewire\FixImage;
 use App\Http\Livewire\Search;
 use App\Http\Livewire\SearchCustomer;
 use Illuminate\Support\Facades\Route;
@@ -8,6 +9,7 @@ use App\Models\Comment;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,6 +61,7 @@ Route::get('/products', \App\Http\Livewire\Product::class)->name('products');
 // Route::view('/wellcome', '\livewire\counter');
 Route::get('/search',SearchCustomer::class);
 Route::get('/searchCustomer',Search::class);
+Route::get('/imageChange',FixImage::class);
 Route::get('customer/{id}', function(Request $request) {
     $id=$request->id;
     $customer = Customer::findOrFail($id);
@@ -80,3 +83,6 @@ Route::get('/search/name',function(Request $request){
 
     return $customer; 
  });
+
+
+

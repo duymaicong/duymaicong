@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="./dist/heic2any.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
    -->
@@ -32,7 +33,7 @@
 <!-- :intinialComments="$comments" -->
 <div class="d-flex justify-content-between bg-primary text-white py-2">
         <div> <a class="d-d-inline text-white mx-3 text-decoration-none" href="/">Home</a><a class="text-decoration-none d-inline mx-3 text-white" href="/rsa">RSA</a><a class="text-decoration-none d-inline mx-3 text-white" href="/products">Products</a>
-        <a class="text-decoration-none mx-3 text-white" href="/searchCustomer">Search typeahead </a><a class="text-decoration-none mx-3 text-white" href="/search">SearchLivewire</a></div>
+        <a class="text-decoration-none mx-3 text-white" href="/searchCustomer">Search typeahead </a><a class="text-decoration-none mx-3 text-white" href="/search">SearchLivewire</a><a class="text-decoration-none mx-3 text-white" href="/imageChange">HEIC</a></div>
         
         @auth
         <livewire:logout />

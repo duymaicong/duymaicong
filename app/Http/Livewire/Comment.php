@@ -76,6 +76,12 @@ class Comment extends Component
         if (!$this->image) {
             return null;
         }
+        // application/octet-stream;base64
+        // "data:image/jpeg;base64,
+
+     
+        // $output = shell_exec("convert -transparent 'RGB(249,249,255)' /home/me/web/my.png $this->image");
+    //     shell_exec(convert $path $newPath);
         $img = ImageManagerStatic::make($this->image)->encode('jpg');
         $name = Str::random() . '.jpg';
         Storage::disk('public')->put($name, $img);

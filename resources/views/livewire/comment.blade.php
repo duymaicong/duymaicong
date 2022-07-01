@@ -36,7 +36,7 @@
                 </div>
                 <button disabled="disabled"><i class="btn btn-dark fas fa-times text-danger hover-overlay" wire:click="remove({{$comment['id']}})"></i></button>
             </div>
-            @if($comment['image'])<img src="storage/{{$comment->image}}" >
+            @if($comment['image'])<img src="storage/{{$comment->image}}">
             @endif
             <p class="text-black-50">{{$comment['body']}}</p>
 

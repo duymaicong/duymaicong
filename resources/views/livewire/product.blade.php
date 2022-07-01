@@ -54,8 +54,7 @@
                             <input type="file" class="form-control" id="image" placeholder="Image" wire:model="photo">
                             
                             @error('photo') <span class="text-danger ">{{ $message }}</span> @enderror
-                            @if($photo)<p class="my-2"><img src="{{$photo->temporaryUrl()}}" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2"></p>
-                            @endif
+                          
                         </div>
 
 

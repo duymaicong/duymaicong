@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\DB;
 
+
 class Product extends Component
 {
     use WithFileUploads;
@@ -44,11 +45,14 @@ class Product extends Component
             'form.color' => 'required|max:250',
             'form.ram' => 'required|max:250',
             'form.description' => 'required|max:250|regex:/(^[A-Za-z0-9]+$)+/',
-            'form.price' => 'required|max:250',
+            'form.price' => 'required|max:250|numeric',
             'photo' => 'image|mimes:jpeg,jpg,png,gif|max:2000'
         ]);
+        // dd($this->photo);
         // dd($this->photo->getRealPath());
+        dd($this->photo);
         $a = $this->photo->storeAs('public', Str::random() . '.jpg');
+    
         $image = substr($a, 7);
         // dd($image);
         // $image = $this->storeImage();
