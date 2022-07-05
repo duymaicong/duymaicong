@@ -33,7 +33,7 @@
 <!-- :intinialComments="$comments" -->
 <div class="d-flex justify-content-between bg-primary text-white py-2">
         <div> <a class="d-d-inline text-white mx-3 text-decoration-none" href="/">Home</a><a class="text-decoration-none d-inline mx-3 text-white" href="/rsa">RSA</a><a class="text-decoration-none d-inline mx-3 text-white" href="/products">Products</a>
-        <a class="text-decoration-none mx-3 text-white" href="/searchCustomer">Search typeahead </a><a class="text-decoration-none mx-3 text-white" href="/search">SearchLivewire</a><a class="text-decoration-none mx-3 text-white" href="/imageChange">HEIC</a></div>
+        <a class="text-decoration-none mx-3 text-white" href="/searchCustomer">Search typeahead </a><a class="text-decoration-none mx-3 text-white" href="/search">SearchLivewire</a><a class="text-decoration-none mx-3 text-white" href="/imageChange">HEIC</a><a class="text-decoration-none mx-3 text-white" href="/resetDom">reset</a></div>
         
         @auth
         <livewire:logout />

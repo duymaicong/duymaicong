@@ -1,6 +1,6 @@
 <div>
 
-
+{{Auth::user()}}
     <div class="container">
         <h1 class="text-3xl">Comments</h1>
         <section>

@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\Comment as Comments;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic;
 use Livewire\WithPagination;
@@ -21,8 +22,7 @@ class Comment extends Component
 
     // protected $paginationTheme = 'bootstrap';
 
-
-    public $check;
+    
     public function addComment()
     {
         $this->validate(['newComment' => 'required|max:250']);
@@ -64,6 +64,7 @@ class Comment extends Component
     }
     public $newComment;
     public $image;
+    public $us;
     protected $listeners = ['fileUpload' => 'handleFileUpload'];
     public function handleFileUpload($imageData)
     {
@@ -90,6 +91,10 @@ class Comment extends Component
 
     public function mount()
     {
+        if (Auth::check()) {
+            $this->us=Auth::user();
+            // dd($this->us['name']);
+        }
         //$intinialComments
         // $this->comments=Comments::latest()->get();
         // $this->comments = $intinialComments;
