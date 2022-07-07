@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 use App\Exports\UsersExport;
 use App\Mail\WellcomeMail;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 
 use Livewire\Component;
@@ -21,6 +22,10 @@ class ExportExcel extends Component
     }
     public function sendMail(){
         Mail::to('maicongduy300393@gmail.com')->send(new WellcomeMail());  
+    }
+    public function checkFile(){
+        $check=	Storage::exists('file.txt');
+      dd('check file',$check);
     }
     public function render()
     {
